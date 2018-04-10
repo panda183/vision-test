@@ -1,4 +1,4 @@
-# Install script for directory: /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3
+# Install script for directory: /home/ubuntu/shortcut
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,18 +34,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/lane_detection/cmake_install.cmake")
-  include("/home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/peripheral_driver/cmake_install.cmake")
-  include("/home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/stereo_vision/cmake_install.cmake")
-  include("/home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/ObjectRecognition/cmake_install.cmake")
-  include("/home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/ObjectDetection/cmake_install.cmake")
-  include("/home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/HAL/cmake_install.cmake")
-  include("/home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/multilane/cmake_install.cmake")
-  include("/home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/sign_detection/cmake_install.cmake")
-  include("/home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/sign_recognize/cmake_install.cmake")
-  include("/home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/radon/cmake_install.cmake")
-  include("/home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/extract_info/cmake_install.cmake")
-  include("/home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/openni2/cmake_install.cmake")
+  include("/home/ubuntu/shortcut/peripheral_driver/cmake_install.cmake")
+  include("/home/ubuntu/shortcut/HAL/cmake_install.cmake")
+  include("/home/ubuntu/shortcut/openni2/cmake_install.cmake")
 
 endif()
 
@@ -57,5 +48,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/ubuntu/shortcut/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

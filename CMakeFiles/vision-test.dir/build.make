@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3
+CMAKE_SOURCE_DIR = /home/ubuntu/shortcut
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3
+CMAKE_BINARY_DIR = /home/ubuntu/shortcut
 
 # Include any dependencies generated for this target.
 include CMakeFiles/vision-test.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/vision-test.dir/flags.make
 
 CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.o: CMakeFiles/vision-test.dir/flags.make
 CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.o: main_pid/vision_test.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/shortcut/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.o -c /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/main_pid/vision_test.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.o -c /home/ubuntu/shortcut/main_pid/vision_test.cpp
 
 CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/main_pid/vision_test.cpp > CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ubuntu/shortcut/main_pid/vision_test.cpp > CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.i
 
 CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/main_pid/vision_test.cpp -o CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ubuntu/shortcut/main_pid/vision_test.cpp -o CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.s
 
 CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.o.requires:
 .PHONY : CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.o.requires
@@ -72,65 +72,33 @@ CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.o.provides: CMakeFiles/visio
 
 CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.o.provides.build: CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.o
 
-CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o: CMakeFiles/vision-test.dir/flags.make
-CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o: driverlesscar_client/LaneDetector/LaneDetector.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o -c /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/driverlesscar_client/LaneDetector/LaneDetector.cpp
-
-CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/driverlesscar_client/LaneDetector/LaneDetector.cpp > CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.i
-
-CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/driverlesscar_client/LaneDetector/LaneDetector.cpp -o CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.s
-
-CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o.requires:
-.PHONY : CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o.requires
-
-CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o.provides: CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o.requires
-	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o.provides.build
-.PHONY : CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o.provides
-
-CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o.provides.build: CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o
-
 # Object files for target vision-test
 vision__test_OBJECTS = \
-"CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.o" \
-"CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o"
+"CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.o"
 
 # External object files for target vision-test
 vision__test_EXTERNAL_OBJECTS =
 
 bin/Release/vision-test: CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.o
-bin/Release/vision-test: CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o
 bin/Release/vision-test: CMakeFiles/vision-test.dir/build.make
 bin/Release/vision-test: bin/Release/libopenni2.a
 bin/Release/vision-test: bin/Release/libi2c-pwm.a
-bin/Release/vision-test: bin/Release/libmultilane.a
 bin/Release/vision-test: bin/Release/libHAL.a
-bin/Release/vision-test: bin/Release/libSignDetection.a
-bin/Release/vision-test: bin/Release/libsignsRecognizer.a
-bin/Release/vision-test: bin/Release/libradon.a
-bin/Release/vision-test: bin/Release/libextractInfo.a
-bin/Release/vision-test: bin/Release/libradon.a
-bin/Release/vision-test: bin/Release/libvanishing-point.a
 bin/Release/vision-test: /usr/local/lib/libopencv_videostab.so.3.2.0
 bin/Release/vision-test: /usr/local/lib/libopencv_ccalib.so.3.2.0
 bin/Release/vision-test: /usr/local/lib/libopencv_fuzzy.so.3.2.0
 bin/Release/vision-test: /usr/local/lib/libopencv_rgbd.so.3.2.0
 bin/Release/vision-test: /usr/local/lib/libopencv_xfeatures2d.so.3.2.0
+bin/Release/vision-test: /usr/local/lib/libopencv_ximgproc.so.3.2.0
+bin/Release/vision-test: /usr/local/lib/libopencv_xobjdetect.so.3.2.0
+bin/Release/vision-test: /usr/local/lib/libopencv_xphoto.so.3.2.0
 bin/Release/vision-test: /usr/local/lib/libopencv_shape.so.3.2.0
 bin/Release/vision-test: /usr/local/lib/libopencv_video.so.3.2.0
-bin/Release/vision-test: /usr/local/lib/libopencv_ximgproc.so.3.2.0
 bin/Release/vision-test: /usr/local/lib/libopencv_calib3d.so.3.2.0
 bin/Release/vision-test: /usr/local/lib/libopencv_features2d.so.3.2.0
 bin/Release/vision-test: /usr/local/lib/libopencv_flann.so.3.2.0
-bin/Release/vision-test: /usr/local/lib/libopencv_xobjdetect.so.3.2.0
 bin/Release/vision-test: /usr/local/lib/libopencv_objdetect.so.3.2.0
 bin/Release/vision-test: /usr/local/lib/libopencv_ml.so.3.2.0
-bin/Release/vision-test: /usr/local/lib/libopencv_xphoto.so.3.2.0
 bin/Release/vision-test: /usr/local/lib/libopencv_highgui.so.3.2.0
 bin/Release/vision-test: /usr/local/lib/libopencv_photo.so.3.2.0
 bin/Release/vision-test: /usr/local/lib/libopencv_videoio.so.3.2.0
@@ -146,7 +114,6 @@ CMakeFiles/vision-test.dir/build: bin/Release/vision-test
 .PHONY : CMakeFiles/vision-test.dir/build
 
 CMakeFiles/vision-test.dir/requires: CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.o.requires
-CMakeFiles/vision-test.dir/requires: CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o.requires
 .PHONY : CMakeFiles/vision-test.dir/requires
 
 CMakeFiles/vision-test.dir/clean:
@@ -154,6 +121,6 @@ CMakeFiles/vision-test.dir/clean:
 .PHONY : CMakeFiles/vision-test.dir/clean
 
 CMakeFiles/vision-test.dir/depend:
-	cd /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3 /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3 /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3 /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3 /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/CMakeFiles/vision-test.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/shortcut && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/shortcut /home/ubuntu/shortcut /home/ubuntu/shortcut /home/ubuntu/shortcut /home/ubuntu/shortcut/CMakeFiles/vision-test.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/vision-test.dir/depend
 

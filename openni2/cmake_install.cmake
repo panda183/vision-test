@@ -1,4 +1,4 @@
-# Install script for directory: /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/openni2
+# Install script for directory: /home/ubuntu/shortcut/openni2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

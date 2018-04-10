@@ -42,10 +42,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3
+CMAKE_SOURCE_DIR = /home/ubuntu/shortcut
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3
+CMAKE_BINARY_DIR = /home/ubuntu/shortcut
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,9 +72,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/CMakeFiles /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/shortcut/CMakeFiles /home/ubuntu/shortcut/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/shortcut/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -102,45 +102,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test-autocar
-
-# Build rule for target.
-test-autocar: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-autocar
-.PHONY : test-autocar
-
-# fast build rule for target.
-test-autocar/fast:
-	$(MAKE) -f CMakeFiles/test-autocar.dir/build.make CMakeFiles/test-autocar.dir/build
-.PHONY : test-autocar/fast
-
-#=============================================================================
-# Target rules for targets named test-steering-coef
-
-# Build rule for target.
-test-steering-coef: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-steering-coef
-.PHONY : test-steering-coef
-
-# fast build rule for target.
-test-steering-coef/fast:
-	$(MAKE) -f CMakeFiles/test-steering-coef.dir/build.make CMakeFiles/test-steering-coef.dir/build
-.PHONY : test-steering-coef/fast
-
-#=============================================================================
-# Target rules for targets named testSignRecognize
-
-# Build rule for target.
-testSignRecognize: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 testSignRecognize
-.PHONY : testSignRecognize
-
-# fast build rule for target.
-testSignRecognize/fast:
-	$(MAKE) -f CMakeFiles/testSignRecognize.dir/build.make CMakeFiles/testSignRecognize.dir/build
-.PHONY : testSignRecognize/fast
-
-#=============================================================================
 # Target rules for targets named vision-test
 
 # Build rule for target.
@@ -152,32 +113,6 @@ vision-test: cmake_check_build_system
 vision-test/fast:
 	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/build
 .PHONY : vision-test/fast
-
-#=============================================================================
-# Target rules for targets named test-vanishing-point
-
-# Build rule for target.
-test-vanishing-point: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-vanishing-point
-.PHONY : test-vanishing-point
-
-# fast build rule for target.
-test-vanishing-point/fast:
-	$(MAKE) -f lane_detection/CMakeFiles/test-vanishing-point.dir/build.make lane_detection/CMakeFiles/test-vanishing-point.dir/build
-.PHONY : test-vanishing-point/fast
-
-#=============================================================================
-# Target rules for targets named vanishing-point
-
-# Build rule for target.
-vanishing-point: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vanishing-point
-.PHONY : vanishing-point
-
-# fast build rule for target.
-vanishing-point/fast:
-	$(MAKE) -f lane_detection/CMakeFiles/vanishing-point.dir/build.make lane_detection/CMakeFiles/vanishing-point.dir/build
-.PHONY : vanishing-point/fast
 
 #=============================================================================
 # Target rules for targets named i2c-pwm
@@ -219,71 +154,6 @@ uart/fast:
 .PHONY : uart/fast
 
 #=============================================================================
-# Target rules for targets named kinect-cv2
-
-# Build rule for target.
-kinect-cv2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 kinect-cv2
-.PHONY : kinect-cv2
-
-# fast build rule for target.
-kinect-cv2/fast:
-	$(MAKE) -f stereo_vision/CMakeFiles/kinect-cv2.dir/build.make stereo_vision/CMakeFiles/kinect-cv2.dir/build
-.PHONY : kinect-cv2/fast
-
-#=============================================================================
-# Target rules for targets named test-kinect-cv2
-
-# Build rule for target.
-test-kinect-cv2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-kinect-cv2
-.PHONY : test-kinect-cv2
-
-# fast build rule for target.
-test-kinect-cv2/fast:
-	$(MAKE) -f stereo_vision/CMakeFiles/test-kinect-cv2.dir/build.make stereo_vision/CMakeFiles/test-kinect-cv2.dir/build
-.PHONY : test-kinect-cv2/fast
-
-#=============================================================================
-# Target rules for targets named test-kinect-cv2-2
-
-# Build rule for target.
-test-kinect-cv2-2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-kinect-cv2-2
-.PHONY : test-kinect-cv2-2
-
-# fast build rule for target.
-test-kinect-cv2-2/fast:
-	$(MAKE) -f stereo_vision/CMakeFiles/test-kinect-cv2-2.dir/build.make stereo_vision/CMakeFiles/test-kinect-cv2-2.dir/build
-.PHONY : test-kinect-cv2-2/fast
-
-#=============================================================================
-# Target rules for targets named ObjectRecognition
-
-# Build rule for target.
-ObjectRecognition: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ObjectRecognition
-.PHONY : ObjectRecognition
-
-# fast build rule for target.
-ObjectRecognition/fast:
-	$(MAKE) -f ObjectRecognition/CMakeFiles/ObjectRecognition.dir/build.make ObjectRecognition/CMakeFiles/ObjectRecognition.dir/build
-.PHONY : ObjectRecognition/fast
-
-#=============================================================================
-# Target rules for targets named ObjectDetection
-
-# Build rule for target.
-ObjectDetection: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ObjectDetection
-.PHONY : ObjectDetection
-
-# fast build rule for target.
-ObjectDetection/fast:
-	$(MAKE) -f ObjectDetection/CMakeFiles/ObjectDetection.dir/build.make ObjectDetection/CMakeFiles/ObjectDetection.dir/build
-.PHONY : ObjectDetection/fast
-
-#=============================================================================
 # Target rules for targets named HAL
 
 # Build rule for target.
@@ -297,97 +167,6 @@ HAL/fast:
 .PHONY : HAL/fast
 
 #=============================================================================
-# Target rules for targets named multilane
-
-# Build rule for target.
-multilane: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 multilane
-.PHONY : multilane
-
-# fast build rule for target.
-multilane/fast:
-	$(MAKE) -f multilane/CMakeFiles/multilane.dir/build.make multilane/CMakeFiles/multilane.dir/build
-.PHONY : multilane/fast
-
-#=============================================================================
-# Target rules for targets named test-multilane
-
-# Build rule for target.
-test-multilane: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test-multilane
-.PHONY : test-multilane
-
-# fast build rule for target.
-test-multilane/fast:
-	$(MAKE) -f multilane/CMakeFiles/test-multilane.dir/build.make multilane/CMakeFiles/test-multilane.dir/build
-.PHONY : test-multilane/fast
-
-#=============================================================================
-# Target rules for targets named SignDetection
-
-# Build rule for target.
-SignDetection: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 SignDetection
-.PHONY : SignDetection
-
-# fast build rule for target.
-SignDetection/fast:
-	$(MAKE) -f sign_detection/CMakeFiles/SignDetection.dir/build.make sign_detection/CMakeFiles/SignDetection.dir/build
-.PHONY : SignDetection/fast
-
-#=============================================================================
-# Target rules for targets named signsRecognizer
-
-# Build rule for target.
-signsRecognizer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 signsRecognizer
-.PHONY : signsRecognizer
-
-# fast build rule for target.
-signsRecognizer/fast:
-	$(MAKE) -f sign_recognize/CMakeFiles/signsRecognizer.dir/build.make sign_recognize/CMakeFiles/signsRecognizer.dir/build
-.PHONY : signsRecognizer/fast
-
-#=============================================================================
-# Target rules for targets named radon
-
-# Build rule for target.
-radon: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 radon
-.PHONY : radon
-
-# fast build rule for target.
-radon/fast:
-	$(MAKE) -f radon/CMakeFiles/radon.dir/build.make radon/CMakeFiles/radon.dir/build
-.PHONY : radon/fast
-
-#=============================================================================
-# Target rules for targets named extractInfo
-
-# Build rule for target.
-extractInfo: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 extractInfo
-.PHONY : extractInfo
-
-# fast build rule for target.
-extractInfo/fast:
-	$(MAKE) -f extract_info/CMakeFiles/extractInfo.dir/build.make extract_info/CMakeFiles/extractInfo.dir/build
-.PHONY : extractInfo/fast
-
-#=============================================================================
-# Target rules for targets named test_extract_info
-
-# Build rule for target.
-test_extract_info: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_extract_info
-.PHONY : test_extract_info
-
-# fast build rule for target.
-test_extract_info/fast:
-	$(MAKE) -f extract_info/CMakeFiles/test_extract_info.dir/build.make extract_info/CMakeFiles/test_extract_info.dir/build
-.PHONY : test_extract_info/fast
-
-#=============================================================================
 # Target rules for targets named openni2
 
 # Build rule for target.
@@ -399,102 +178,6 @@ openni2: cmake_check_build_system
 openni2/fast:
 	$(MAKE) -f openni2/CMakeFiles/openni2.dir/build.make openni2/CMakeFiles/openni2.dir/build
 .PHONY : openni2/fast
-
-driverlesscar_client/LaneDetector/LaneDetector.o: driverlesscar_client/LaneDetector/LaneDetector.cpp.o
-.PHONY : driverlesscar_client/LaneDetector/LaneDetector.o
-
-# target to build an object file
-driverlesscar_client/LaneDetector/LaneDetector.cpp.o:
-	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o
-.PHONY : driverlesscar_client/LaneDetector/LaneDetector.cpp.o
-
-driverlesscar_client/LaneDetector/LaneDetector.i: driverlesscar_client/LaneDetector/LaneDetector.cpp.i
-.PHONY : driverlesscar_client/LaneDetector/LaneDetector.i
-
-# target to preprocess a source file
-driverlesscar_client/LaneDetector/LaneDetector.cpp.i:
-	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.i
-.PHONY : driverlesscar_client/LaneDetector/LaneDetector.cpp.i
-
-driverlesscar_client/LaneDetector/LaneDetector.s: driverlesscar_client/LaneDetector/LaneDetector.cpp.s
-.PHONY : driverlesscar_client/LaneDetector/LaneDetector.s
-
-# target to generate assembly for a file
-driverlesscar_client/LaneDetector/LaneDetector.cpp.s:
-	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.s
-.PHONY : driverlesscar_client/LaneDetector/LaneDetector.cpp.s
-
-main_pid/automaticCar.o: main_pid/automaticCar.cpp.o
-.PHONY : main_pid/automaticCar.o
-
-# target to build an object file
-main_pid/automaticCar.cpp.o:
-	$(MAKE) -f CMakeFiles/test-autocar.dir/build.make CMakeFiles/test-autocar.dir/main_pid/automaticCar.cpp.o
-.PHONY : main_pid/automaticCar.cpp.o
-
-main_pid/automaticCar.i: main_pid/automaticCar.cpp.i
-.PHONY : main_pid/automaticCar.i
-
-# target to preprocess a source file
-main_pid/automaticCar.cpp.i:
-	$(MAKE) -f CMakeFiles/test-autocar.dir/build.make CMakeFiles/test-autocar.dir/main_pid/automaticCar.cpp.i
-.PHONY : main_pid/automaticCar.cpp.i
-
-main_pid/automaticCar.s: main_pid/automaticCar.cpp.s
-.PHONY : main_pid/automaticCar.s
-
-# target to generate assembly for a file
-main_pid/automaticCar.cpp.s:
-	$(MAKE) -f CMakeFiles/test-autocar.dir/build.make CMakeFiles/test-autocar.dir/main_pid/automaticCar.cpp.s
-.PHONY : main_pid/automaticCar.cpp.s
-
-main_pid/test-steering-coef.o: main_pid/test-steering-coef.cpp.o
-.PHONY : main_pid/test-steering-coef.o
-
-# target to build an object file
-main_pid/test-steering-coef.cpp.o:
-	$(MAKE) -f CMakeFiles/test-steering-coef.dir/build.make CMakeFiles/test-steering-coef.dir/main_pid/test-steering-coef.cpp.o
-.PHONY : main_pid/test-steering-coef.cpp.o
-
-main_pid/test-steering-coef.i: main_pid/test-steering-coef.cpp.i
-.PHONY : main_pid/test-steering-coef.i
-
-# target to preprocess a source file
-main_pid/test-steering-coef.cpp.i:
-	$(MAKE) -f CMakeFiles/test-steering-coef.dir/build.make CMakeFiles/test-steering-coef.dir/main_pid/test-steering-coef.cpp.i
-.PHONY : main_pid/test-steering-coef.cpp.i
-
-main_pid/test-steering-coef.s: main_pid/test-steering-coef.cpp.s
-.PHONY : main_pid/test-steering-coef.s
-
-# target to generate assembly for a file
-main_pid/test-steering-coef.cpp.s:
-	$(MAKE) -f CMakeFiles/test-steering-coef.dir/build.make CMakeFiles/test-steering-coef.dir/main_pid/test-steering-coef.cpp.s
-.PHONY : main_pid/test-steering-coef.cpp.s
-
-main_pid/testSignRecognition.o: main_pid/testSignRecognition.cpp.o
-.PHONY : main_pid/testSignRecognition.o
-
-# target to build an object file
-main_pid/testSignRecognition.cpp.o:
-	$(MAKE) -f CMakeFiles/testSignRecognize.dir/build.make CMakeFiles/testSignRecognize.dir/main_pid/testSignRecognition.cpp.o
-.PHONY : main_pid/testSignRecognition.cpp.o
-
-main_pid/testSignRecognition.i: main_pid/testSignRecognition.cpp.i
-.PHONY : main_pid/testSignRecognition.i
-
-# target to preprocess a source file
-main_pid/testSignRecognition.cpp.i:
-	$(MAKE) -f CMakeFiles/testSignRecognize.dir/build.make CMakeFiles/testSignRecognize.dir/main_pid/testSignRecognition.cpp.i
-.PHONY : main_pid/testSignRecognition.cpp.i
-
-main_pid/testSignRecognition.s: main_pid/testSignRecognition.cpp.s
-.PHONY : main_pid/testSignRecognition.s
-
-# target to generate assembly for a file
-main_pid/testSignRecognition.cpp.s:
-	$(MAKE) -f CMakeFiles/testSignRecognize.dir/build.make CMakeFiles/testSignRecognize.dir/main_pid/testSignRecognition.cpp.s
-.PHONY : main_pid/testSignRecognition.cpp.s
 
 main_pid/vision_test.o: main_pid/vision_test.cpp.o
 .PHONY : main_pid/vision_test.o
@@ -529,40 +212,11 @@ help:
 	@echo "... vision-test"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... testSignRecognize"
-	@echo "... test-autocar"
-	@echo "... test-steering-coef"
-	@echo "... vanishing-point"
-	@echo "... test-vanishing-point"
 	@echo "... i2c-pwm"
 	@echo "... uart"
 	@echo "... test-uart"
-	@echo "... test-kinect-cv2-2"
-	@echo "... kinect-cv2"
-	@echo "... test-kinect-cv2"
-	@echo "... ObjectRecognition"
-	@echo "... ObjectDetection"
 	@echo "... HAL"
-	@echo "... test-multilane"
-	@echo "... multilane"
-	@echo "... SignDetection"
-	@echo "... signsRecognizer"
-	@echo "... radon"
-	@echo "... test_extract_info"
-	@echo "... extractInfo"
 	@echo "... openni2"
-	@echo "... driverlesscar_client/LaneDetector/LaneDetector.o"
-	@echo "... driverlesscar_client/LaneDetector/LaneDetector.i"
-	@echo "... driverlesscar_client/LaneDetector/LaneDetector.s"
-	@echo "... main_pid/automaticCar.o"
-	@echo "... main_pid/automaticCar.i"
-	@echo "... main_pid/automaticCar.s"
-	@echo "... main_pid/test-steering-coef.o"
-	@echo "... main_pid/test-steering-coef.i"
-	@echo "... main_pid/test-steering-coef.s"
-	@echo "... main_pid/testSignRecognition.o"
-	@echo "... main_pid/testSignRecognition.i"
-	@echo "... main_pid/testSignRecognition.s"
 	@echo "... main_pid/vision_test.o"
 	@echo "... main_pid/vision_test.i"
 	@echo "... main_pid/vision_test.s"

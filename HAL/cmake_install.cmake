@@ -1,4 +1,4 @@
-# Install script for directory: /home/ubuntu/DriverlessCarChallenge/jetson/carControl/src/0.3/HAL
+# Install script for directory: /home/ubuntu/shortcut/HAL
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

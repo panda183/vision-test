@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/vision-test.dir/main_pid/vision_test.cpp.o"
-  "CMakeFiles/vision-test.dir/driverlesscar_client/LaneDetector/LaneDetector.cpp.o"
   "bin/Release/vision-test.pdb"
   "bin/Release/vision-test"
 )

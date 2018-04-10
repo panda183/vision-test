@@ -1,5 +1,3 @@
-
-#include "api_kinect_cv.h"
 #include <iostream>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/opencv.hpp>
@@ -7,22 +5,15 @@
 #include "openni2.h"
 #include "../openni2/Singleton.h"
 #include <unistd.h>
-//#include "../sign_detection/SignDetection.h"
 #include <chrono>
-//#include "signsRecognizer.h"
-//#include "extractInfo.h"
 #include <stdlib.h>
-//#include "multilane.h"
 #include "Hal.h"
 #include "LCDI2C.h"
 #include "api_i2c_pwm.h"
-#include "../driverlesscar_client/LaneDetector/LaneDetector.h"
 
 using namespace cv;
 using namespace std;
-using namespace openni;
 using namespace framework;
-//using namespace signDetection;
 using namespace EmbeddedFramework;
 
 #ifndef DEBUG_
