@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 2.8)
 project( CarControl-0.3 )
 
 find_package( OpenCV REQUIRED )
-set( OPENNI2_INCLUDE /home/ubuntu/Downloads/2-Linux/OpenNI-Linux-Arm-2.3/Include)
-set( OPENNI2_REDIST  /home/ubuntu/Downloads/2-Linux/OpenNI-Linux-Arm-2.3/Redist)
+set( OPENNI2_INCLUDE /home/ubuntu/2-Linux/OpenNI-Linux-Arm-2.3/Include)
+set( OPENNI2_REDIST  /home/ubuntu/2-Linux/OpenNI-Linux-Arm-2.3/Redist)
 include_directories( ${OPENNI2_INCLUDE})
 link_directories ( ${OPENNI2_REDIST})
 
@@ -33,15 +33,15 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin/${CMAKE_BUILD_TYPE})
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin/${CMAKE_BUILD_TYPE})
 
 include_directories(
-      ${OpenCV_INCLUDE_DIRS}
-      ${CMAKE_CURRENT_SOURCE_DIR}/peripheral_driver/i2c
-      ${CMAKE_CURRENT_SOURCE_DIR}/peripheral_driver/uart
-      ${CMAKE_CURRENT_SOURCE_DIR}/HAL	
-	  ${CMAKE_CURRENT_SOURCE_DIR}/openni2
+    ${OpenCV_INCLUDE_DIRS}
+    ${CMAKE_CURRENT_SOURCE_DIR}/peripheral_driver/i2c
+    ${CMAKE_CURRENT_SOURCE_DIR}/peripheral_driver/uart
+    ${CMAKE_CURRENT_SOURCE_DIR}/HAL
+    ${CMAKE_CURRENT_SOURCE_DIR}/control/include
 )
 
 link_directories( ${LIB_FREENECT_INSTALL_DIR}/lib
-                  ${LIBRARY_OUTPUT_PATH}
+    ${LIBRARY_OUTPUT_PATH}
 )
 
 find_package(OpenMP)
@@ -56,6 +56,9 @@ add_subdirectory(HAL)
 add_subdirectory(openni2)
 
 set( vision_exe vision-test)
-set( vision_src main_pid/vision_test.cpp)
+set( vision_src 
+    main_pid/vision_test.cpp
+    control/src/OpenNIHelper.cpp
+)
 add_executable( ${vision_exe} ${vision_src})
-target_link_libraries( ${vision_exe} OpenNI2 openni2 i2c-pwm HAL ${OpenCV_LIBS})
+target_link_libraries( ${vision_exe} OpenNI2 i2c-pwm HAL ${OpenCV_LIBS})

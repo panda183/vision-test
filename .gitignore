@@ -3,3 +3,7 @@ bin
 build
 *.jpg
 *.png
+CMakeFiles
+*.cmake
+Makefile
+CMakeCache.txt

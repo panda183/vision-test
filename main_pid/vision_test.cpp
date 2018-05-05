@@ -2,8 +2,7 @@
 #include <opencv2/imgproc.hpp>
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui.hpp>
-#include "openni2.h"
-#include "../openni2/Singleton.h"
+#include "OpenNIHelper.h"
 #include <unistd.h>
 #include <chrono>
 #include <stdlib.h>
@@ -13,7 +12,6 @@
 
 using namespace cv;
 using namespace std;
-using namespace framework;
 using namespace EmbeddedFramework;
 
 #ifndef DEBUG_
@@ -123,7 +121,7 @@ void RunCar()
             Menu();
         }
         auto cur_time = std::chrono::system_clock::now();
-        OpenNI2::Instance()->getData(colorImg, depthImg, grayImage, disparity);
+        ni::openni2_getmat(colorImg, depthImg);
         //imshow("color",colorImg);
         laneMarkingDetector(colorImg,laneImg ,12);
         CheckVatCan();
@@ -448,7 +446,7 @@ void init()
     lcd->LCDBacklightOn();
     lcd->LCDCursorOn();
 
-    OpenNI2::Instance() -> init();
+    ni::openni2_init();
     leftSign = imread("left.jpg",1);
     rightSign = imread("right.jpg",1);
 }

@@ -1,6 +1,0 @@
-/home/ubuntu/shortcut/CMakeFiles/vision-test.dir
-/home/ubuntu/shortcut/peripheral_driver/i2c/CMakeFiles/i2c-pwm.dir
-/home/ubuntu/shortcut/HAL/CMakeFiles/HAL.dir
-/home/ubuntu/shortcut/openni2/CMakeFiles/openni2.dir
-/home/ubuntu/shortcut/peripheral_driver/uart/CMakeFiles/uart.dir
-/home/ubuntu/shortcut/peripheral_driver/uart/CMakeFiles/test-uart.dir
