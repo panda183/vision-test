@@ -53,7 +53,6 @@ endif()
 
 add_subdirectory(peripheral_driver)
 add_subdirectory(HAL)
-add_subdirectory(openni2)
 
 set( vision_exe vision-test)
 set( vision_src 
