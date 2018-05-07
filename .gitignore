@@ -7,3 +7,5 @@ CMakeFiles
 *.cmake
 Makefile
 CMakeCache.txt
+*~
+.vscode
