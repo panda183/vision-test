@@ -9,6 +9,7 @@
 #include "Hal.h"
 #include "LCDI2C.h"
 #include "api_i2c_pwm.h"
+#include "LaneDetector.h"
 
 using namespace cv;
 using namespace std;
@@ -72,8 +73,11 @@ bool RunCar()
         }
         auto cur_time = std::chrono::system_clock::now();
         ni::openni2_getmat(colorImg, depthImg);
-        imshow("color",colorImg);
-        // setControl(speed, angle);
+        // imshow("color",colorImg);
+        Mat laneImg=ld::birdView(colorImg);
+
+        ld::findLane(laneImg,1);
+        //setControl(speed, angle);
         cout<< chrono::duration<double, milli> (std::chrono::system_clock::now()-cur_time).count()<<endl;
         if (waitKey(1) == 27) break;
     }
