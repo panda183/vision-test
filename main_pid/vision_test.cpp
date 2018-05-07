@@ -10,6 +10,7 @@
 #include "LCDI2C.h"
 #include "api_i2c_pwm.h"
 #include "LaneDetector.h"
+#include "Driver.h"
 
 using namespace cv;
 using namespace std;
@@ -63,7 +64,7 @@ bool RunCar()
     //writer2.open("./SignDetect "+to_string(videoidx)+".avi",CV_FOURCC('M','J','P','G'),25.0,Size(320,240),true);
     clearLCD();
     putTextLCD(0, 0, "Running");
-
+    Driver driver;
     while (true)
     {
         int key = getLCDkey();
@@ -75,6 +76,7 @@ bool RunCar()
         ni::openni2_getmat(colorImg, depthImg);
         // imshow("color",colorImg);
         Mat laneImg=ld::birdView(colorImg);
+        driver.inputImg(colorImg, depthImg);
 
         ld::findLane(laneImg,1);
         //setControl(speed, angle);

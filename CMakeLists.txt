@@ -59,6 +59,10 @@ set( vision_src
     main_pid/vision_test.cpp
     control/src/OpenNIHelper.cpp
     control/src/LaneDetector.cpp
+    control/src/SignDetector.cpp
+    control/src/Driver.cpp
+    control/src/ObstacleDetector.cpp
+    control/src/Utilities.cpp
 )
 add_executable( ${vision_exe} ${vision_src})
 target_link_libraries( ${vision_exe} OpenNI2 i2c-pwm HAL ${OpenCV_LIBS})
