@@ -11,6 +11,7 @@
 #include "api_i2c_pwm.h"
 #include "LaneDetector.h"
 #include "Driver.h"
+#include "SignDetector.h"
 
 using namespace cv;
 using namespace std;
@@ -28,8 +29,8 @@ GPIO *gpio;
 PCA9685 *pca9685;
 I2C *i2c_device;
 LCDI2C *lcd;
-Mat depthImg(480, 640, CV_16UC1),
-    colorImg(480, 640, CV_8UC3);
+Mat depthImg(240, 320, CV_16UC1),
+    colorImg(240, 320, CV_8UC3);
 bool sw1_stat, sw2_stat, sw3_stat, sw4_stat;
 VideoWriter writer, writer2;
 int videoidx = 0;
@@ -56,6 +57,7 @@ int main(int argc, char *argv[])
 void Destroy()
 {
     ni::openni2_destroy();
+    api_pwm_pca9685_release( pca9685 );
 }
 
 bool RunCar()
@@ -72,18 +74,21 @@ bool RunCar()
         {
             Menu();
         }
-        auto cur_time = std::chrono::system_clock::now();
         ni::openni2_getmat(colorImg, depthImg);
+        auto cur_time = std::chrono::system_clock::now();
         // imshow("color",colorImg);
-        Mat laneImg=ld::birdView(colorImg);
+        // Mat laneImg=ld::birdView(colorImg);
+        // sd::DetectSign(colorImg, depthImg);
+        // resize(colorImg, colorImg, Size(320, 240));
+        // resize(depthImg, depthImg, Size(320, 240));
         driver.inputImg(colorImg, depthImg);
-
-        ld::findLane(laneImg,1);
+        imshow("color", colorImg);
+        // ld::findLane(laneImg,1);
         //setControl(speed, angle);
         cout<< chrono::duration<double, milli> (std::chrono::system_clock::now()-cur_time).count()<<endl;
         if (waitKey(1) == 27) break;
     }
-    return true;
+    return false;
 }
 void Ready()
 {
@@ -116,7 +121,7 @@ void Menu()
     clearLCD();
     putTextLCD(0, 0, "Mode:Nghiem Tuc");
     //targetSpeed=55;
-    do
+    while (true)
     {
         int key = getLCDkey();
         if (key == 4)
@@ -137,9 +142,9 @@ void Menu()
         if (key == 3)
         {
             Ready();
+            break;
         }
-
-    } while (1);
+    }
 }
 void init()
 {
@@ -189,6 +194,7 @@ void init()
     lcd->LCDCursorOn();
 
     ni::openni2_init();
+    sd::init();
 }
 
 void setControl(int speed, double angle)
