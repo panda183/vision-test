@@ -76,15 +76,9 @@ bool RunCar()
         }
         ni::openni2_getmat(colorImg, depthImg);
         auto cur_time = std::chrono::system_clock::now();
-        // imshow("color",colorImg);
-        // Mat laneImg=ld::birdView(colorImg);
-        // sd::DetectSign(colorImg, depthImg);
-        // resize(colorImg, colorImg, Size(320, 240));
-        // resize(depthImg, depthImg, Size(320, 240));
         driver.inputImg(colorImg, depthImg);
         imshow("color", colorImg);
-        // ld::findLane(laneImg,1);
-        //setControl(speed, angle);
+        setControl(25, - driver.getSteering());
         cout<< chrono::duration<double, milli> (std::chrono::system_clock::now()-cur_time).count()<<endl;
         if (waitKey(1) == 27) break;
     }
