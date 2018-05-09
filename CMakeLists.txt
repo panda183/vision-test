@@ -60,7 +60,7 @@ set( vision_src
     control/src/OpenNIHelper.cpp
     control/src/LaneDetector.cpp
     control/src/SignDetector.cpp
-    control/src/Driver.cpp
+    # control/src/Driver.cpp
     control/src/ObstacleDetector.cpp
     control/src/Utilities.cpp
 )

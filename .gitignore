@@ -9,3 +9,4 @@ Makefile
 CMakeCache.txt
 *~
 .vscode
+ground_plane.txt

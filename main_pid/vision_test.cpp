@@ -10,7 +10,6 @@
 #include "LCDI2C.h"
 #include "api_i2c_pwm.h"
 #include "LaneDetector.h"
-#include "Driver.h"
 #include "SignDetector.h"
 
 using namespace cv;
@@ -66,21 +65,31 @@ bool RunCar()
     //writer2.open("./SignDetect "+to_string(videoidx)+".avi",CV_FOURCC('M','J','P','G'),25.0,Size(320,240),true);
     clearLCD();
     putTextLCD(0, 0, "Running");
-    Driver driver;
+    ld::hugLane=RIGHT;
+    float P=0,D=0,angle=0;
     while (true)
     {
-        int key = getLCDkey();
-        if (key == 3 || !nothingFrontSensor())
-        {
+        if(getLCDkey()==3||!nothingFrontSensor()){
             Menu();
         }
-        ni::openni2_getmat(colorImg, depthImg);
         auto cur_time = std::chrono::system_clock::now();
-        driver.inputImg(colorImg, depthImg);
-        imshow("color", colorImg);
-        setControl(25, - driver.getSteering());
-        cout<< chrono::duration<double, milli> (std::chrono::system_clock::now()-cur_time).count()<<endl;
-        if (waitKey(1) == 27) break;
+        ni::openni2_getmat(colorImg, depthImg);
+        utl::splitGround(colorImg,depthImg);
+        imshow("ground",utl::groundImg);
+        imshow("nonGround",utl::nonGroundImg);
+        ld::findLane();
+        sd::DetectSign(utl::nonGroundImg,depthImg);
+        if(sd::sign==-ld::hugLane){
+            ld::hugLane=-ld::hugLane;
+        }
+        waitKey(1);
+        float deltaTime=chrono::duration<double, milli> (std::chrono::system_clock::now()-cur_time).count();
+        cout<<deltaTime<<endl;
+        D=((ld::xCenterLane-160.0)-P)/deltaTime;
+        P=(ld::xCenterLane-160.0);
+        angle=4*P+10*D;
+        cout<<angle<<endl;
+        setControl(30,angle);   
     }
     return false;
 }
@@ -188,7 +197,10 @@ void init()
     lcd->LCDCursorOn();
 
     ni::openni2_init();
+    utl::readGroundPlane();
+    utl::getTransformMatrix();
     sd::init();
+
 }
 
 void setControl(int speed, double angle)

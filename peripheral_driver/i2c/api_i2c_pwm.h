@@ -23,10 +23,10 @@ using namespace std;
 #define THROTTLE_NEUTRAL        368 // 363 // 1.5 ms/16.39ms * 4096
 #define THROTTLE_MAX_FORWARD    491 // 573 // 2.0 ms/16.39ms * 4096
 //dieu khien servo
-#define STEERING_MAX_RIGHT1      200 // 153
-#define STEERING_MAX_LEFT1       530 // 573
-#define STEERING_MAX_RIGHT2      200 // 153
-#define STEERING_MAX_LEFT2       530 // 573
+#define STEERING_MAX_RIGHT1      160 // 153
+#define STEERING_MAX_LEFT1       570 // 573
+#define STEERING_MAX_RIGHT2      160 // 153
+#define STEERING_MAX_LEFT2       570 // 573
 
 // The THROTTLE is plugged into the following PWM channel
 #define THROTTLE_CHANNEL  0
