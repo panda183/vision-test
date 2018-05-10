@@ -41,7 +41,7 @@ bool nothingFrontSensor();
 bool isPressed(int PIN);
 int getLCDkey();
 void Menu();
-bool RunCar();
+void RunCar();
 void Destroy();
 void setControl(int speed, double angle);
 void Ready();
@@ -50,48 +50,61 @@ int main(int argc, char *argv[])
 {
     init();
     Menu();
-    Destroy();
 }
 
 void Destroy()
 {
     ni::openni2_destroy();
-    api_pwm_pca9685_release( pca9685 );
+    setControl(0, 0);
+    api_pwm_pca9685_release(pca9685);
+    exit(1);
 }
 
-bool RunCar()
+void RunCar()
 {
-    //writer.open("./birdViewLane "+to_string(videoidx)+".avi",CV_FOURCC('M','J','P','G'),25.0,Size(320,240),true);
+    utl::writer.open("birdViewLane " + to_string(videoidx) + ".avi", CV_FOURCC('M', 'J', 'P', 'G'), 25.0, Size(640, 480), true);
     //writer2.open("./SignDetect "+to_string(videoidx)+".avi",CV_FOURCC('M','J','P','G'),25.0,Size(320,240),true);
     clearLCD();
     putTextLCD(0, 0, "Running");
-    ld::hugLane=RIGHT;
-    float P=0,D=0,angle=0;
+    ld::hugLane = RIGHT;
+    float P = 0, D = 0, angle = 0;
+    int speed = 60;
     while (true)
     {
-        if(getLCDkey()==3||!nothingFrontSensor()){
+        int lcdKey = getLCDkey();
+        if (lcdKey == 3 || !nothingFrontSensor())
+        {
             Menu();
+        }
+        if (lcdKey == 1)
+        {
+            Destroy();
         }
         auto cur_time = std::chrono::system_clock::now();
         ni::openni2_getmat(colorImg, depthImg);
-        utl::splitGround(colorImg,depthImg);
-        imshow("ground",utl::groundImg);
-        imshow("nonGround",utl::nonGroundImg);
+        utl::splitGround(colorImg, depthImg);
         ld::findLane();
-        sd::DetectSign(utl::nonGroundImg,depthImg);
-        if(sd::sign==-ld::hugLane){
-            ld::hugLane=-ld::hugLane;
+        sd::DetectSign(colorImg, depthImg);
+        colorImg.copyTo(utl::videoFrame(cv::Rect(0,0,320, 240)));
+        utl::writer.write(utl::videoFrame);
+        if (sd::sign == -ld::hugLane)
+        {
+            ld::hugLane = -ld::hugLane;
         }
-        waitKey(1);
-        float deltaTime=chrono::duration<double, milli> (std::chrono::system_clock::now()-cur_time).count();
-        cout<<deltaTime<<endl;
-        D=((ld::xCenterLane-160.0)-P)/deltaTime;
-        P=(ld::xCenterLane-160.0);
-        angle=4*P+10*D;
-        cout<<angle<<endl;
-        setControl(30,angle);   
+        float deltaTime = chrono::duration<double, milli>(std::chrono::system_clock::now() - cur_time).count();
+        cout << deltaTime << endl;
+        D = ((160.0 - ld::xCenterLane) - P) / deltaTime;
+        P = (160.0 - ld::xCenterLane);
+        angle = 4.5 * P + 10 * D;
+        cout << angle << endl;
+        setControl(speed, angle);
+        if (speed < 90) speed++;
+        if (sd::sign == STOP)
+        {
+            Menu();
+        }
     }
-    return false;
+    Menu();
 }
 void Ready()
 {
@@ -105,19 +118,15 @@ void Ready()
             Menu();
         }
     }
-    if (RunCar()) Menu();
+    RunCar();
 }
 
 void Menu()
 {
-    //videoidx++;
-    if (writer.isOpened())
+    videoidx++;
+    if (utl::writer.isOpened())
     {
-        writer.release();
-    }
-    if (writer2.isOpened())
-    {
-        writer2.release();
+        utl::writer.release();
     }
     double angle = 0;
     setControl(0, 0);
@@ -147,6 +156,8 @@ void Menu()
             Ready();
             break;
         }
+        if (key == 1)
+            Destroy();
     }
 }
 void init()
@@ -162,6 +173,7 @@ void init()
     gpio = new GPIO();
     i2c_device = new I2C();
     lcd = new LCDI2C();
+    
     gpio->gpioExport(SW1_PIN);
     gpio->gpioExport(SW2_PIN);
     gpio->gpioExport(SW3_PIN);
@@ -200,7 +212,6 @@ void init()
     utl::readGroundPlane();
     utl::getTransformMatrix();
     sd::init();
-
 }
 
 void setControl(int speed, double angle)
@@ -223,7 +234,7 @@ void clearLCD()
 bool nothingFrontSensor()
 {
     unsigned int sensor_status = 0;
-    for (int i = 0; i < 20; i++ )
+    for (int i = 0; i < 20; i++)
     {
         gpio->gpioGetValue(SENSOR, &sensor_status);
         if (sensor_status == 1)
@@ -235,7 +246,7 @@ bool nothingFrontSensor()
 bool isPressed(int PIN)
 {
     unsigned int sensor_status = 0;
-    for (int i = 0; i <  20; i++)
+    for (int i = 0; i < 20; i++)
     {
         gpio->gpioGetValue(PIN, &sensor_status);
         if (sensor_status == 0)
