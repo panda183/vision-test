@@ -33,7 +33,8 @@ Mat depthImg(240, 320, CV_16UC1),
 bool sw1_stat, sw2_stat, sw3_stat, sw4_stat;
 VideoWriter writer, writer2;
 int videoidx = 0;
-
+int angleArr[8];
+float rootAngle;
 void init();
 void putTextLCD(int x, int y, char *msg);
 void clearLCD();
@@ -59,9 +60,26 @@ void Destroy()
     api_pwm_pca9685_release(pca9685);
     exit(1);
 }
-
+int nearAngle(float compass){
+    compass+=180;
+    int res=-1;
+    for (int i = 0; i < 8; ++i)
+    {
+        if(i==0&&(compass>0&&compass<10)||(compass>350&&compass<360)){
+            res=0;
+            break;
+        }else{
+            if(abs(compass-i*45)<10){
+                res=i;
+                break;
+            }
+        }
+    }
+    return res;
+}
 void RunCar()
 {
+
     utl::writer.open("birdViewLane " + to_string(videoidx) + ".avi", CV_FOURCC('M', 'J', 'P', 'G'), 25.0, Size(640, 480), true);
     //writer2.open("./SignDetect "+to_string(videoidx)+".avi",CV_FOURCC('M','J','P','G'),25.0,Size(320,240),true);
     clearLCD();
@@ -69,8 +87,18 @@ void RunCar()
     ld::hugLane = RIGHT;
     float P = 0, D = 0, angle = 0;
     int speed = 60;
+    float curAngle;
     while (true)
     {
+        curAngle=(getcompass+180)-rootAngle
+        curAngle=curAngle<0?curAngle+360:curAngle;
+        if(nearAngle(curAngle)!=-1){
+            if(nearAngle!=last){
+                angleArr[nearAngle]++;
+                last=nearAngle;
+                putTextLCD(0,2,to_string())
+            }
+        }
         int lcdKey = getLCDkey();
         if (lcdKey == 3 || !nothingFrontSensor())
         {
@@ -79,7 +107,7 @@ void RunCar()
         if (lcdKey == 1)
         {
             Destroy();
-        }
+        } 
         auto cur_time = std::chrono::system_clock::now();
         ni::openni2_getmat(colorImg, depthImg);
         utl::splitGround(colorImg, depthImg);
@@ -108,6 +136,7 @@ void RunCar()
 }
 void Ready()
 {
+    rootAngle=(getcompass+180);
     clearLCD();
     putTextLCD(0, 0, "Ready!!!");
     while (!nothingFrontSensor())
